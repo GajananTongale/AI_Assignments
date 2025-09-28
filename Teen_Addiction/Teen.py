@@ -10,11 +10,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neural_network import MLPClassifier
-from sklearn.cluster import KMeans
 
-# ------------------------
-# MODEL DICTIONARY
-# ------------------------
 models = {
     "Logistic Regression": LogisticRegression(max_iter=1000),
     "KNN": KNeighborsClassifier(),
@@ -26,9 +22,7 @@ models = {
     "Neural Net": MLPClassifier(max_iter=1000)
 }
 
-# ------------------------
-# STREAMLIT UI
-# ------------------------
+
 st.set_page_config(page_title="Addiction Prediction App", layout="wide")
 
 st.title("📱 Student Phone Addiction Prediction")
@@ -78,7 +72,7 @@ if uploaded_file is not None:
     input_scaled = scaler.transform(input_df)
 else:
     X_scaled = None
-    input_scaled = scaler.fit_transform(input_df)  # just to scale input
+    input_scaled = scaler.fit_transform(input_df)
 
 # Train and predict
 if st.sidebar.button("Predict"):
@@ -113,20 +107,10 @@ if st.sidebar.button("Predict"):
                     "Importance": importances
                 }).sort_values(by="Importance", ascending=False)
                 st.bar_chart(feature_importance_df.set_index("Feature"))
-    else:
-        # KMeans clustering
-        if uploaded_file is None:
-            st.warning("Upload a dataset to train KMeans.")
-        else:
-            model.fit(X_scaled)
-            cluster = model.predict(input_scaled)
-            st.subheader("KMeans Cluster")
-            st.write(f"The input belongs to cluster: {cluster[0]}")
 
 # Extra visualization
 if uploaded_file is not None:
     st.subheader("Data Distribution")
     st.bar_chart(df.describe().T["mean"])
 
-st.markdown("---")
-st.markdown("Developed with ❤️ using Streamlit and scikit-learn")
+
