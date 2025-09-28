@@ -23,8 +23,7 @@ models = {
     "Random Forest": RandomForestClassifier(),
     "Gradient Boosting": GradientBoostingClassifier(),
     "Naive Bayes": GaussianNB(),
-    "Neural Net": MLPClassifier(max_iter=1000),
-    "KMeans": KMeans(n_clusters=3, random_state=42)
+    "Neural Net": MLPClassifier(max_iter=1000)
 }
 
 # ------------------------
