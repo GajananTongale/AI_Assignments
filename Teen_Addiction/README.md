@@ -2,6 +2,8 @@
 
 A **Streamlit web application** that predicts **student phone addiction** levels based on daily habits, mental health indicators, and usage patterns using multiple machine learning models. The app also supports **clustering students** using KMeans.
 
+You can test the live app here: [Phone Addiction Prediction App](https://phone-addiction-app.streamlit.app/)
+
 ---
 
 ## Features
