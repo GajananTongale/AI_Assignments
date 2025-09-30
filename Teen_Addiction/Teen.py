@@ -108,9 +108,5 @@ if st.sidebar.button("Predict"):
                 }).sort_values(by="Importance", ascending=False)
                 st.bar_chart(feature_importance_df.set_index("Feature"))
 
-# Extra visualization
-if uploaded_file is not None:
-    st.subheader("Data Distribution")
-    st.bar_chart(df.describe().T["mean"])
 
 
